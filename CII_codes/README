@@ -1,0 +1,103 @@
+This repository contains MATLAB scripts corresponding to different stages of the EEG analysis pipeline for subject 13AR.
+
+🔹 Core Analysis Files
+
+1. psd_preprocessing
+Data loaded from FieldTrip .mat structure
+Occipital channels selected:
+O1, Oz, O2, POz, PO3, PO4, PO7, PO8, Iz
+Signals averaged across channels
+
+2. psd_compare_conditions_13AR.mat
+Computes and visualizes Power Spectral Density (PSD) across conditions
+Compares:
+Eyes Closed (EC)
+Eyes Open (EO)
+Grating (G)
+Helps identify frequency-domain differences (especially alpha band)
+
+3. alpha_power_13AR.mat
+Extracts alpha-band power (8–12 Hz) across trials
+Generates:
+Alpha power distributions
+Boxplots across conditions
+Used to validate physiological behavior (EC > EO)
+
+4. condition_classification_13AR.mat
+Performs classification analysis using band-power features
+Evaluates:
+Within-condition accuracy
+Cross-condition generalization
+Used to assess separability of brain states
+
+5. variability_analysis_13AR.mat
+Computes variance of features across conditions
+Quantifies:
+Stability vs variability of neural responses
+Provides a first estimate of representation consistency
+
+6. cii_analysis_13AR.mat
+Implements Context Invariance Index (CII) using:
+Multi-band features (delta–beta)
+Computes:
+Similarity matrix
+Global CII
+Core metric for cross-condition invariance
+
+7. cii_alpha_only_13AR.mat
+Computes CII using only alpha-band features
+Enables comparison between:
+Low-dimensional (alpha)
+High-dimensional (full-band)
+Highlights importance of feature richness
+
+🔹 Phase-wise Analysis Files
+
+8. phase2_temporal_cii_13AR.mat
+Performs temporal stability analysis
+Compares:
+EC1 vs EC2
+EO1 vs EO2
+G1 vs G2
+Computes:
+Alpha CII
+Full-band CII
+Validates consistency over time
+
+9. phase3_meditation_analysis_13AR.mat
+Performs full 8-condition analysis
+Generates:
+8×8 similarity matrix
+Meditation vs baseline comparison
+Computes:
+Global CII for meditation vs baseline
+Core file for final results and conclusions
+
+
+How Files Connect (Pipeline Flow)
+PSD → Alpha Power → Variability → Classification → CII → Temporal Stability → Meditation Analysis
+
+Recommended Execution Order
+
+Run the scripts in the following order:
+
+psd_compare_conditions_13AR
+alpha_power_13AR
+variability_analysis_13AR
+condition_classification_13AR
+cii_analysis_13AR
+cii_alpha_only_13AR
+phase2_temporal_cii_13AR
+phase3_meditation_analysis_13AR
+
+What Each File Contributes:
+
+File	          Purpose	                  Output
+Pre-process     Data check                Spectral plots
+PSD	            Frequency analysis	      Spectral plots
+Alpha	          Band-specific analysis	  Boxplots
+Variability	    Stability measure	        Variance
+Classification	Separability	            Accuracy
+CII	            Invariance metric	        Similarity
+Phase 2	        Temporal validation	      Stability
+Phase 3	        Final analysis	          Meditation effect
