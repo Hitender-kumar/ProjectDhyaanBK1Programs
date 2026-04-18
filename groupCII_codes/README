@@ -1,0 +1,53 @@
+1. group_expert_vs_control_cii.m
+
+Purpose
+
+This script performs the basic group-level comparison between expert meditators and controls.
+
+It computes:
+
+Baseline CII
+Meditation CII
+Group means
+Paired t-tests
+Group comparison boxplot
+What It Does
+For each subject:
+Baseline CII
+
+Computed using: EO1↔EC1,EO1↔G1,EC1↔G1
+
+Meditation CII
+
+Computed using: M1↔(EO1,EC1,G1) and M2↔(EO2,EC2,G2)
+
+Output
+Numerical Results
+Expert baseline mean
+Expert meditation mean
+Control baseline mean
+Control meditation mean
+p-values
+
+Plot
+Expert vs Control comparison boxplot
+
+
+2. group_expert_control_full_analysis_FINAL.m
+
+It includes:
+
+Full statistical testing
+Effect size analysis
+Interaction testing
+Gender analysis
+Additional visualization plots
+What It Computes
+A. Group Means
+
+For:
+
+Expert Baseline
+Expert Meditation
+Control Baseline
+Control Meditation
